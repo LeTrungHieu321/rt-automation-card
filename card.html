@@ -27,10 +27,32 @@
 
         /* ===== HEADER ===== */
         .header {
+            position: relative;
             background: linear-gradient(135deg, #2b4f81, #1d3557);
             color: white;
             text-align: center;
             padding: 32px 20px;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            font-size: 12px;
+        }
+
+        .lang-switch button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            opacity: 0.6;
+        }
+
+        .lang-switch button.active {
+            opacity: 1;
+            text-decoration: underline;
         }
 
         .avatar {
@@ -109,7 +131,6 @@
             color: white;
             border: none;
             width: 100%;
-            text-align: center;
             padding: 14px;
             border-radius: 14px;
             font-weight: bold;
@@ -120,100 +141,127 @@
         .save-btn:hover {
             background: #1558b0;
         }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            font-size: 10px;
+            color: #888;
+            margin-top: 14px;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- CARD TO IMAGE -->
     <div class="profile-card" id="cardToImage">
 
         <!-- HEADER -->
         <div class="header">
+
+            <div class="lang-switch">
+                <button id="btnVi" class="active" onclick="setLang('vi')">VI</button> |
+                <button id="btnEn" onclick="setLang('en')">EN</button>
+            </div>
+
             <div class="avatar">
                 <img src="logo.jpg" alt="R&T Automation Lab">
             </div>
+
             <div class="company">R&amp;T AUTOMATION LAB</div>
-            <div class="subtitle">Điều khiển &amp; Tự động hoá</div>
+
+            <div class="subtitle" data-vi="Điều khiển &amp; Tự động hoá" data-en="Control &amp; Automation">
+                Điều khiển &amp; Tự động hoá
+            </div>
         </div>
 
         <!-- CONTENT -->
         <div class="content">
 
-            <div class="description">
+            <div class="description"
+                data-vi="Hỗ trợ đồ án mô hình các ngành như:<br>Cơ điện tử, Điện – điện tử, Tự động hoá"
+                data-en="Supporting project models in:<br>Mechatronics, Electrical &amp; Electronics, Automation">
                 Hỗ trợ đồ án mô hình các ngành như:<br>
                 Cơ điện tử, Điện – điện tử, Tự động hoá
             </div>
 
-            <div class="item">
+            <div class="item" data-vi="<div class='icon'>👤</div><div><strong>Lê Trung Hiếu</strong></div>"
+                data-en="<div class='icon'>👤</div><div><strong>Le Trung Hieu</strong></div>">
                 <div class="icon">👤</div>
                 <div><strong>Lê Trung Hiếu</strong></div>
             </div>
 
-            <!-- ZALO -->
-            <a href="https://zalo.me/0337487321" target="_blank"
-               style="text-decoration:none;color:inherit;">
+            <a href="https://zalo.me/0337487321" target="_blank" style="text-decoration:none;color:inherit;">
                 <div class="item">
                     <div class="icon">📞</div>
                     <div>0337 487 321</div>
                 </div>
             </a>
 
-            <!-- EMAIL -->
-            <a href="mailto:lehieu.87321@gmail.com"
-               style="text-decoration:none;color:inherit;">
+            <a href="mailto:lehieu.87321@gmail.com" style="text-decoration:none;color:inherit;">
                 <div class="item">
                     <div class="icon">✉️</div>
                     <div>lehieu.87321@gmail.com</div>
                 </div>
             </a>
 
-            <!-- TIKTOK -->
             <a href="https://www.tiktok.com/@rt.automationlab" target="_blank"
-               style="text-decoration:none;color:inherit;">
+                style="text-decoration:none;color:inherit;">
                 <div class="item">
                     <div class="icon">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="#000000"
-                             xmlns="http://www.w3.org/2000/svg">
+                            xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.5 3c.8 2.1 2.4 3.7 4.5 4.5v3.2c-1.6 0-3.2-.5-4.5-1.4v6.2
-                            c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.4 0 .8 0 1.2.1v3.3
-                            c-.4-.2-.8-.2-1.2-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9
-                            2.9 2.9 2.9-1.3 2.9-2.9V3h3.1z"/>
+                c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.4 0 .8 0 1.2.1v3.3
+                c-.4-.2-.8-.2-1.2-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9
+                2.9 2.9 2.9-1.3 2.9-2.9V3h3.1z" />
                         </svg>
                     </div>
                     <div>@rt.automationlab</div>
                 </div>
             </a>
 
-            <!-- MAP -->
+
             <a href="https://maps.app.goo.gl/gVS1LB5WJnRsaigo7" target="_blank"
-               style="text-decoration:none;color:inherit;">
-                <div class="item">
+                style="text-decoration:none;color:inherit;">
+                <div class="item" data-vi="<div class='icon'>📍</div><div>Phòng Lab R&amp;T Automation</div>"
+                    data-en="<div class='icon'>📍</div><div>R&amp;T Automation Lab</div>">
                     <div class="icon">📍</div>
                     <div>Phòng Lab R&amp;T Automation</div>
                 </div>
             </a>
 
-            <!-- SAVE IMAGE -->
-            <button class="save-btn" onclick="saveAsImage()">
+            <button class="save-btn" data-vi="📥 Lưu hình ảnh" data-en="📥 Save image" onclick="saveAsImage()">
                 📥 Lưu hình ảnh
             </button>
+
+            <div class="footer" data-vi="By R&amp;T Automation Lab" data-en="By R&amp;T Automation Lab">
+                By R&amp;T Automation Lab
+            </div>
 
         </div>
     </div>
 
-    <!-- HTML2CANVAS -->
+    <!-- html2canvas -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
-    <!-- SCRIPT SAVE IMAGE -->
     <script>
+        function setLang(lang) {
+            document.querySelectorAll("[data-vi]").forEach(el => {
+                el.innerHTML = el.getAttribute("data-" + lang);
+            });
+
+            document.getElementById("btnVi").classList.remove("active");
+            document.getElementById("btnEn").classList.remove("active");
+
+            document.getElementById(lang === "vi" ? "btnVi" : "btnEn")
+                .classList.add("active");
+        }
+
         function saveAsImage() {
             const card = document.getElementById("cardToImage");
-
-            html2canvas(card, {
-                scale: 2,
-                useCORS: true
-            }).then(canvas => {
+            html2canvas(card, { scale: 2, useCORS: true }).then(canvas => {
                 const link = document.createElement("a");
                 link.download = "RT-Automation-Card.png";
                 link.href = canvas.toDataURL("image/png");
