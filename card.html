@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lê Trung Hiếu | R&T Automation Lab</title>
+    <title>R&T Automation Lab</title>
 
     <style>
         /* ===== GLOBAL ===== */
@@ -107,12 +107,14 @@
             margin-top: 16px;
             background: #1d72f3;
             color: white;
-            text-decoration: none;
-            display: block;
+            border: none;
+            width: 100%;
             text-align: center;
             padding: 14px;
             border-radius: 14px;
             font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
         }
 
         .save-btn:hover {
@@ -123,34 +125,32 @@
 
 <body>
 
-    <div class="profile-card">
+    <!-- CARD TO IMAGE -->
+    <div class="profile-card" id="cardToImage">
 
-        <!-- ===== HEADER ===== -->
+        <!-- HEADER -->
         <div class="header">
             <div class="avatar">
                 <img src="logo.jpg" alt="R&T Automation Lab">
             </div>
-
             <div class="company">R&amp;T AUTOMATION LAB</div>
             <div class="subtitle">Điều khiển &amp; Tự động hoá</div>
         </div>
 
-        <!-- ===== CONTENT ===== -->
+        <!-- CONTENT -->
         <div class="content">
 
-            <!-- Mô tả -->
             <div class="description">
                 Hỗ trợ đồ án mô hình các ngành như:<br>
                 Cơ điện tử, Điện – điện tử, Tự động hoá
             </div>
 
-            <!-- Tên cá nhân -->
             <div class="item">
                 <div class="icon">👤</div>
                 <div><strong>Lê Trung Hiếu</strong></div>
             </div>
 
-            <!-- Zalo -->
+            <!-- ZALO -->
             <a href="https://zalo.me/0337487321" target="_blank"
                style="text-decoration:none;color:inherit;">
                 <div class="item">
@@ -159,7 +159,7 @@
                 </div>
             </a>
 
-            <!-- Email -->
+            <!-- EMAIL -->
             <a href="mailto:lehieu.87321@gmail.com"
                style="text-decoration:none;color:inherit;">
                 <div class="item">
@@ -168,47 +168,59 @@
                 </div>
             </a>
 
-            <!-- TikTok -->
+            <!-- TIKTOK -->
             <a href="https://www.tiktok.com/@rt.automationlab" target="_blank"
                style="text-decoration:none;color:inherit;">
                 <div class="item">
                     <div class="icon">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="#000000"
                              xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.5 3c.8 2.1 2.4 3.7 4.5 4.5v3.2c-1.6 0-3.2-.5-4.5-1.4v6.2c0 3.3-2.7 6-6 6s-6-2.7-6-6
-                            2.7-6 6-6c.4 0 .8 0 1.2.1v3.3c-.4-.2-.8-.2-1.2-.2-1.6 0-2.9 1.3-2.9 2.9
-                            s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V3h3.1z"/>
+                            <path d="M16.5 3c.8 2.1 2.4 3.7 4.5 4.5v3.2c-1.6 0-3.2-.5-4.5-1.4v6.2
+                            c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.4 0 .8 0 1.2.1v3.3
+                            c-.4-.2-.8-.2-1.2-.2-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9
+                            2.9 2.9 2.9-1.3 2.9-2.9V3h3.1z"/>
                         </svg>
                     </div>
                     <div>@rt.automationlab</div>
                 </div>
             </a>
 
-            <!-- Địa chỉ -->
+            <!-- MAP -->
             <a href="https://maps.app.goo.gl/gVS1LB5WJnRsaigo7" target="_blank"
                style="text-decoration:none;color:inherit;">
                 <div class="item">
                     <div class="icon">📍</div>
-                    <div>Phòng Lab R&T Automation</div>
+                    <div>Phòng Lab R&amp;T Automation</div>
                 </div>
             </a>
 
-            <!-- vCard -->
-            <a class="save-btn" href="data:text/vcard;charset=utf-8,
-BEGIN:VCARD
-VERSION:3.0
-N:Le;Hieu;;;
-FN:Lê Trung Hiếu
-ORG:R&T AUTOMATION LAB
-TITLE:Automation Engineer
-TEL;TYPE=CELL:0337487321
-EMAIL:lehieu.87321@gmail.com
-END:VCARD">
-                📥 Lưu Hình Ảnh
-            </a>
+            <!-- SAVE IMAGE -->
+            <button class="save-btn" onclick="saveAsImage()">
+                📥 Lưu hình ảnh
+            </button>
 
         </div>
     </div>
+
+    <!-- HTML2CANVAS -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+    <!-- SCRIPT SAVE IMAGE -->
+    <script>
+        function saveAsImage() {
+            const card = document.getElementById("cardToImage");
+
+            html2canvas(card, {
+                scale: 2,
+                useCORS: true
+            }).then(canvas => {
+                const link = document.createElement("a");
+                link.download = "RT-Automation-Card.png";
+                link.href = canvas.toDataURL("image/png");
+                link.click();
+            });
+        }
+    </script>
 
 </body>
 
